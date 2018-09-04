@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+  fx:controller="controllers.admin.AdminDashBoardController">
+  <center>
+    <AnchorPane style="-fx-background-color: #f6fcff;" maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+      prefWidth="800.0">
+      <children>
+        <AnchorPane style="-fx-background-color: #242f41;" prefHeight="500.0" prefWidth="200.0"
+          translateZ="20.0">
+          <children>
+            <!--end of side bar menu options-->
+            <Label style="-fx-text-fill: white;" layoutX="67.0" layoutY="14.0" text="Snap Tran"/>
+            <ImageView fitHeight="86.0" fitWidth="62.0" layoutX="68.0" layoutY="51.0"
+              pickOnBounds="true" preserveRatio="true" fx:id="profilePic">
+              <image>
+                <Image url="@../resources/avatar.png"/>
+              </image>
+            </ImageView>
+            <Label style="-fx-text-fill: white;" layoutX="64.0" layoutY="113.0"
+              text="Admin User" fx:id="loggedInEmployeeId"/>
+            <!--side bar menu options-->
+            <VBox layoutX="25.0" layoutY="157.0" prefHeight="74.0" prefWidth="150.0">
+              <children>
+                <Button style="-fx-background-color: #f6fcff;" mnemonicParsing="false"
+                  onMouseClicked="#onRouteManagementButtonClicked" prefHeight="27.0" prefWidth="151.0"
+                  text="Route Management">
+                  <VBox.margin>
+                    <Insets bottom="20.0"/>
+                  </VBox.margin>
+                </Button>
+                <Button style="-fx-background-color: #f6fcff;" mnemonicParsing="false"
+                  onMouseClicked="#onPolicyManagementButtonClicked" prefHeight="27.0" prefWidth="151.0"
+                  text="Policy Management">
+                  <VBox.margin>
+                    <Insets bottom="20.0"/>
+                  </VBox.margin>
+                </Button>
+                <Button style="-fx-background-color: #f6fcff;" mnemonicParsing="false"
+                  onMouseClicked="#onAdminDetailsButtonClicked" prefHeight="27.0" prefWidth="151.0"
+                  text="Account Information"/>
+              </children>
+            </VBox>
+          </children>
+        </AnchorPane>
+        <!--Top menu bar-->
+        <AnchorPane style="-fx-background-color: white;" layoutX="200.0" prefHeight="41.0"
+          prefWidth="600.0" translateZ="50.0">
+          <children>
+            <ImageView fitHeight="33.0" fitWidth="33.0" id="close_btn" layoutX="559.0" layoutY="3.0"
+              onMouseClicked="#onCloseButtonClicked" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../resources/close_btn.png"/>
+              </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="29.0" id="back_btn" layoutX="521.0" layoutY="6.0"
+              onMouseClicked="#onToLogInPageButtonClicked" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../resources/logoutIcon.png"/>
+              </image>
+            </ImageView>
+          </children>
+        </AnchorPane>
+        <!--End of top menu bar-->
+        <Label layoutX="213.0" layoutY="60.0" text="Welcome Admin User!">
+          <font>
+            <Font name="PetitaBold" size="14.0"/>
+          </font>
+        </Label>
+        <AnchorPane style="-fx-background-color: #242f41; -fx-background-radius: 20;" layoutX="515.0" layoutY="114.0" prefHeight="87.0"
+          prefWidth="187.0">
+          <children>
+            <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="3.0" layoutY="15.0"
+              pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../resources/money.png"/>
+              </image>
+            </ImageView>
+            <Label layoutX="34.0" layoutY="20.0" text="Total Revenue" textFill="WHITE">
+              <font>
+                <Font name="PetitaBold" size="14.0"/>
+              </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="44.0" text="\$30,000" textFill="WHITE"
+              fx:id="totalRevenueLabel"/>
+          </children>
+        </AnchorPane>
+        <AnchorPane style="-fx-background-color: #242f41; -fx-background-radius: 20;" layoutX="515.0" layoutY="234.0" prefHeight="85.0"
+          prefWidth="187.0">
+          <children>
+            <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="1.0" layoutY="14.0"
+              pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../resources/card_tap.png"/>
+              </image>
+            </ImageView>
+            <Label layoutX="32.0" layoutY="19.0" text="Total Stations Covered" textFill="WHITE">
+              <font>
+                <Font name="PetitaBold" size="14.0"/>
+              </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="41.0" text="500" textFill="WHITE"
+              fx:id="totalStationsLabel"/>
+          </children>
+        </AnchorPane>
+        <AnchorPane style="-fx-background-color: #242f41; -fx-background-radius: 20;" layoutX="515.0" layoutY="357.0" prefHeight="83.0"
+          prefWidth="150.0">
+          <children>
+            <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="3.0" layoutY="11.0"
+              pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../resources/distance.png"/>
+              </image>
+            </ImageView>
+            <Label layoutX="34.0" layoutY="18.0" text="Total Distance Travelled" textFill="WHITE">
+              <font>
+                <Font name="PetitaBold" size="14.0"/>
+              </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="40.0" text="500" textFill="WHITE"
+              fx:id="totalDistanceLabel"/>
+          </children>
+        </AnchorPane>
+        <Separator layoutX="200.0" layoutY="40.0" prefHeight="3.0" prefWidth="600.0"/>
+        <Label layoutX="213.0" layoutY="91.0" text="Select Desired Time Period">
+          <font>
+            <Font name="PetitaBold" size="13.0"/>
+          </font>
+        </Label>
+        <RadioButton layoutX="236.0" layoutY="114.0" mnemonicParsing="false" onAction="#updateStatistics"
+          selected="true" text="Day" fx:id="dayOption">
+          <toggleGroup>
+            <ToggleGroup fx:id="timePeriodOptions"/>
+          </toggleGroup>
+        </RadioButton>
+        <RadioButton layoutX="236.0" layoutY="140.0" mnemonicParsing="false" onAction="#updateStatistics"
+          text="Week" toggleGroup="$timePeriodOptions" fx:id="weekOption"/>
+        <RadioButton layoutX="236.0" layoutY="165.0" mnemonicParsing="false" onAction="#updateStatistics"
+          text="Month" toggleGroup="$timePeriodOptions" fx:id="monthOption"/>
+        <Label layoutX="515.0" layoutY="70.0" text="Daily Statistics" fx:id="statsTitleLabel">
+          <font>
+            <Font name="PetitaBold" size="18.0"/>
+          </font>
+        </Label>
+        <VBox layoutX="213.0" layoutY="192.0" prefHeight="303.0" prefWidth="287.0">
+          <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+              <children>
+                <VBox prefHeight="133.0" prefWidth="225.0">
+                  <children>
+                    <Label text="Revenue Composition">
+                      <padding>
+                        <Insets left="5.0" top="5.0"/>
+                      </padding>
+                    </Label>
+                    <PieChart labelLineLength="6.0" maxHeight="-Infinity"
+                      maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                      prefHeight="113.0" prefWidth="271.0" fx:id="revenueCompositionPieChart"/>
+                  </children>
+                </VBox>
+              </children>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+              <children>
+                <Label text="Passenger Flow">
+                  <VBox.margin>
+                    <Insets left="10.0"/>
+                  </VBox.margin>
+                </Label>
+                <HBox prefHeight="144.0" prefWidth="295.0">
+                  <children>
+                    <BarChart alternativeColumnFillVisible="true" animated="false"
+                      barGap="1.0" legendSide="RIGHT" maxHeight="-Infinity" maxWidth="-Infinity"
+                      minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0"
+                      prefWidth="234.0" fx:id="passengerFlowBarChart">
+                      <xAxis>
+                        <CategoryAxis prefHeight="0.0" prefWidth="246.0" side="BOTTOM"
+                          tickLabelGap="5.0" tickLabelRotation="47.1"/>
+                      </xAxis>
+                      <yAxis>
+                        <NumberAxis prefHeight="114.0" prefWidth="0.0" side="LEFT"/>
+                      </yAxis>
+                    </BarChart>
+                    <VBox prefHeight="144.0" prefWidth="50.0">
+                      <children>
+                        <HBox style="-fx-font-size: 10;" prefHeight="23.0" prefWidth="68.0">
+                          <children>
+                            <Rectangle arcWidth="2.0" fill="#eb7575" height="8.0"
+                              stroke="TRANSPARENT" strokeType="INSIDE" width="8.0"/>
+                            <Label text="Tap In">
+                              <HBox.margin>
+                                <Insets/>
+                              </HBox.margin>
+                            </Label>
+                          </children>
+                          <VBox.margin>
+                            <Insets top="40.0"/>
+                          </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="23.0" prefWidth="68.0">
+                          <children>
+                            <Rectangle arcWidth="2.0" fill="#f0ed02" height="8.0"
+                              stroke="TRANSPARENT" strokeType="INSIDE" width="8.0"/>
+                            <Label style="-fx-font-size: 10;" text="Tap Out"/>
+                          </children>
+                        </HBox>
+                        <HBox prefHeight="23.0" prefWidth="68.0">
+                          <children>
+                            <Rectangle arcWidth="2.0" fill="#75eb80" height="8.0"
+                              stroke="TRANSPARENT" strokeType="INSIDE" width="8.0"/>
+                            <Label style="-fx-font-size: 10;" text="Arrived"/>
+                          </children>
+                        </HBox>
+                      </children>
+                      <opaqueInsets>
+                        <Insets top="10.0"/>
+                      </opaqueInsets>
+                    </VBox>
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+      </children>
+    </AnchorPane>
+  </center>
+</BorderPane>

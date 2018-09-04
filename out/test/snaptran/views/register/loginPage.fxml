@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+  fx:controller="controllers.register.LoginPageController">
+  <AnchorPane style="-fx-background-color:#242f41;" maxHeight="-Infinity" maxWidth="-Infinity"
+    minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0"
+    prefWidth="600.0">
+    <!--left side anchor pane (overlays left side of top level anchor pane)-->
+    <AnchorPane style="-fx-background-color: #56667A;" layoutY="-1.0" prefHeight="405.0"
+      prefWidth="300.0">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="75.0" layoutY="134.0"
+        pickOnBounds="true" preserveRatio="true">
+        <Image url="@../resources/Subway_front-512.png"/>
+      </ImageView>
+      <Label layoutX="113.0" layoutY="78.0" text="Snap Tran" textFill="#fffefe">
+        <font>
+          <Font name="PetitaLight" size="18.0"/>
+        </font>
+      </Label>
+    </AnchorPane>
+
+    <!--right side of top level anchor pane-->
+    <!--top level vbox contains user credentials section-->
+    <VBox layoutX="318.0" layoutY="120.0" prefHeight="43.0" prefWidth="100.0">
+      <!--user email or employee ID input-->
+      <VBox prefHeight="43.0" prefWidth="130.0">
+        <padding>
+          <Insets bottom="15.0"/>
+        </padding>
+        <Label minHeight="-Infinity" minWidth="-Infinity" text="Email/Employee ID"
+          textFill="#fffefe">
+          <font>
+            <Font name="PetitaLight" size="13.0"/>
+          </font>
+        </Label>
+        <TextField style="-fx-background-color: none; -fx-text-fill: white;" alignment="BOTTOM_LEFT"
+          promptText="email/ID"
+          fx:id="userIdTextField"/>
+        <Separator prefWidth="200.0"/>
+      </VBox>
+      <!--user password-->
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="130.0">
+        <padding>
+          <Insets bottom="15.0"/>
+        </padding>
+        <Label text="Password" textFill="#fffefe">
+          <font>
+            <Font name="PetitaLight" size="13.0"/>
+          </font>
+        </Label>
+        <PasswordField style="-fx-background-color: none; -fx-text-fill: white;"
+          promptText="password"
+          fx:id="passwordTextField"/>
+        <Separator prefWidth="200.0"/>
+      </VBox>
+    </VBox>
+    <!--credentials title label-->
+    <Label layoutX="318.0" layoutY="81.0" text="Sign in" textFill="#fffefe">
+      <font>
+        <Font name="PetitaLight" size="13.0"/>
+      </font>
+    </Label>
+    <Button style="-fx-background-color: #56667A;" id="admin_dash_btn" layoutX="317.0"
+      layoutY="282.0"
+      mnemonicParsing="false" onMouseClicked="#onAdminButtonLogInClicked"
+      text="Log In To Admin Dashboard" textFill="WHITE"/>
+    <ImageView fitHeight="37.0" fitWidth="37.0" id="close_btn" layoutX="549.0"
+      layoutY="14.0" onMouseClicked="#onCloseButtonClicked" pickOnBounds="true"
+      preserveRatio="true">
+      <Image url="@../resources/close_btn.png"/>
+    </ImageView>
+    <Label layoutX="499.0" layoutY="25.0" onMouseClicked="#onRegisterButtonClicked"
+      text="Register" textFill="#fffefe">
+      <font>
+        <Font name="PetitaLight" size="13.0"/>
+      </font>
+    </Label>
+    <Separator layoutX="546.0" layoutY="14.0" orientation="VERTICAL" prefHeight="37.0"
+      prefWidth="5.0"/>
+    <Button style="-fx-background-color: #56667A;" id="user_dash_btn" layoutX="318.0"
+      layoutY="240.0"
+      mnemonicParsing="false" onMouseClicked="#onCardholderLogInButtonClicked"
+      text="Log In To User Dashboard" textFill="WHITE"/>
+  </AnchorPane>
+</StackPane>
